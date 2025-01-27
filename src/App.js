@@ -1,25 +1,17 @@
-import { BrowserRouter as Router,Link,Routes, Route, Switch } from 'react-router-dom';
-import Home from './Home';
-import About from './About';
-import Contact from './Contact';
+import React from 'react';
 import './App.css';
+import { CounterProvider } from './CounterContext';
+import CounterDisplay from './CounterDisplay';
+import CounterControl from './CounterControl';
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" exact element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-      <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
-        </ul>
-      </nav>
-      </div>
+    <CounterProvider>
+            <div className="App">
+                <CounterDisplay />
+                <CounterControl />
+            </div>
+        </CounterProvider>
   );
 }
 
